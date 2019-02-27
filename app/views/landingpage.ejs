@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<% if(validacao.length > 0 ) { %>
+		<ul>
+			<% for(var i = 0; i < validacao.length ; i++) { %>
+				<li><%= validacao[i].msg %></li>
+			<% } %>
+		</ul>
+	<% } %>
+	<form action="/cadastrar" method="POST">
+		<label>CPF/CNPJ</label>
+		<input type="cpf_cnpj" value="<%= dadosForm.cpf_cnpj %>" id="cpf_cnpj" name="cpf_cnpj" placeholder="CPF/CNPJ">
+		<label>Telefone</label>
+		<input type="telefone" value="<%= dadosForm.telefone %>" id="telefone" name="telefone" placeholder="Telefone">
+		<label>WhatsApp</label>
+		<input type="whatsapp" value="<%= dadosForm.whatsapp %>" id="whatsapp" name="whatsapp" placeholder="WhatsApp">
+		<button type="submit">Confirmar cadastro</button>
+	</form>
+	<script>
+		var socket = io('http://localhost:400');
+	</script>
+</body>
+</html>
