@@ -51,7 +51,8 @@ module.exports.cadastrar = function(application, req, res){
     }
 
     var insereNoBanco = function(dadosForm, marcacaoCliente){
-        leadsModel.inserirLead(dadosForm, marcacaoCliente, function(erros, result){
+        var lead = {cpf_cnpj: dadosForm.cpf_cnpj, telefone: dadosForm.telefone, whatsapp: dadosForm.whatsapp, marcacaoCliente: marcacaoCliente};
+        leadsModel.inserirLead(lead, function(erros, result){
             res.send('cadastrou novo lead');
         })
     }
